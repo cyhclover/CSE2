@@ -20,53 +20,47 @@ public class BigMacAgain{
         String answer; //answer for whether wants fries
         double totalPriceMacs$,totalCost$;
         myScanner = new Scanner(System.in);
+        
         //ask user for inputs
         System.out.print("Enter the number of Big Macs: ");
         if (myScanner.hasNextInt()){
             numOfMacs = myScanner.nextInt(); //if it is a int, this int will be assigned to numOfMacs
-            if (numOfMacs <= 0)
+            if (numOfMacs <= 0){
                 System.out.println("You did not enter an int > 0");
                 //if numOfMacs <= 0, promt the user
-            else
-            {   
-                totalPriceMacs$=costPerMac$*numOfMacs; //calculate the price for total price of macs
-                System.out.print("You ordered "+ numOfMacs+" for a cost of "+numOfMacs
-                    +" x 2.22 =  $");
-                System.out.printf("%1$.2f\n",totalPriceMacs$);
-                   //print out the results
-                   
-                //Asking user if he/she wants fries
-                System.out.print("Do you want an order of fries (Y/y/N/n)? ");
-                answer = myScanner.next(); 
-                //if yes
-                if ((answer.equals("Y")) || (answer.equals("y")))
-                {
-                    System.out.println("You ordered fries at a cost of $2.15");
-                    totalCost$ = costOfFries$+totalPriceMacs$;
-                    System.out.printf("The total cost of the meal is $%1.2f\n", totalCost$);
-                }
-                //if no
-                else if ((answer.equals("N")) || (answer.equals("n")))
-                {
-                    System.out.printf("The total cost of the meal is $%1.2f\n", totalPriceMacs$);
-                    return;
-                }
-                //if user hit something wrong
-                else
-                    System.out.println("You did not enter one of \'y\', \'Y\', \'N\', \'n\'");
-                    return;
+                return;
+                //terminate the program
             }
-            
         }
         //if user did not print an integer
-        else{
+        else
+        {
             System.out.println("You did not enter an int");
             return;
+            //terminate the program
         }
-            
-            
-        
-            
-        
+
+        totalPriceMacs$=costPerMac$*numOfMacs; //calculate the price for total price of macs
+        System.out.print("You ordered "+ numOfMacs+" for a cost of "+numOfMacs
+            +" x 2.22 =  $");
+        System.out.printf("%1$.2f\n",totalPriceMacs$);
+           //print out the results
+           
+        //Asking user if he/she wants fries
+        System.out.print("Do you want an order of fries (Y/y/N/n)? ");
+        answer = myScanner.next(); 
+        //if user said yes
+        if ((answer.equals("Y")) || (answer.equals("y")))
+        {
+            System.out.println("You ordered fries at a cost of $2.15");
+            totalCost$ = costOfFries$+totalPriceMacs$;
+            System.out.printf("The total cost of the meal is $%1.2f\n", totalCost$);
+        }
+        //if user said no
+        else if ((answer.equals("N")) || (answer.equals("n")))
+            System.out.printf("The total cost of the meal is $%1.2f\n", totalPriceMacs$);
+        //if user hit something wrong
+        else
+            System.out.println("You did not enter one of \'y\', \'Y\', \'N\', \'n\'");
     }
 }
