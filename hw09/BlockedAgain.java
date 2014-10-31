@@ -35,7 +35,7 @@ public class BlockedAgain{
                 }
                 else{
                     i = lineLen;   //after printing front spacings and number 
-                    System.out.println(); //and the loop by println
+                    System.out.println(); //and the loop by println & make i to lineLen
                 }
             }
         }
