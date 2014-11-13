@@ -1,7 +1,12 @@
 //Yuhua Chen
 //lab05
 //
-//
+//This program uses the Scanner class to obtain from the user
+
+
+one of three choices for a game of chance: (1) Roulette; (2) Craps; or (3) Picking a
+
+card from a deck of playing cards.
 import java.util.Scanner;
 
 public class RandomGames{
