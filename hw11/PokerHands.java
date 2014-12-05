@@ -1,6 +1,6 @@
 //Yuhua Chen
 //Wed Lab
-
+//show one hand and print out corresponding information
 import java.util.Scanner;
 import java.util.Arrays;
 public class PokerHands{
@@ -23,26 +23,28 @@ public class PokerHands{
                 {
                     infoface = enterface(sc);
                     infoSet = enterSet(sc);
+                    //convert card info to a num from 0 to 51
                     cardInfo[i] = find(face,infoface)*13+find(sets,infoSet);
+                    //if the card is found using find function
                     if (find(cardInfo,cardInfo[i])!=i)
                     {
                         System.out.println("You already entered that card");
                         i--;
                     }
                 }
-                showOneHand(cardInfo);
-                check(cardInfo);
+                showOneHand(cardInfo); //print card info
+                check(cardInfo); //check card info
             }
         }
     }
     public static void check(int[] arr)
     {
         int i,index;
-        int[] suitInfo = new int[5];
-        int[] faceInfo = new int[13];
-        int[] straight = {1,1,1,1,1};
-        Arrays.fill(suitInfo,0);
-        Arrays.fill(faceInfo,0);
+        int[] suitInfo = new int[4]; //frequency counts for suits
+        int[] faceInfo = new int[13]; //frequency counts for info
+        int[] straight = {1,1,1,1,1}; 
+        Arrays.fill(suitInfo,0); //fill suitInfo with 0
+        Arrays.fill(faceInfo,0); //fill faceInfo with 0
         for (i=0;i<5;i++)   //frequency information about suits
         {
             index = arr[i]/13;
@@ -69,11 +71,10 @@ public class PokerHands{
             System.out.println("flush");
             return;
         }
-    
     if (Arrays.equals(Arrays.copyOfRange(faceInfo,index,index+5),straight)){
         System.out.println("Straight");
         return;}
-    //checking faceInfo
+    //sort faceInfo
     Arrays.sort(faceInfo);
     System.out.println(Arrays.toString(faceInfo));
     if (faceInfo[12]==4){
